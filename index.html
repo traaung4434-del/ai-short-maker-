@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="my">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Short Maker</title>
+<style>
+:root{--bg:#0b0b13;--panel:#151522;--panel2:#1d1d2d;--text:#f6f4ff;--muted:#aaa8c2;--accent:#a78bfa;--accent2:#f472b6;--line:#303047}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#21153d 0,#0b0b13 52%);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Noto Sans Myanmar",sans-serif}
+main{max-width:1100px;margin:auto;padding:24px 16px 56px}.brand{display:flex;gap:12px;align-items:center;margin-bottom:22px}.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-size:25px;box-shadow:0 8px 30px #a78bfa40}.brand h1{font-size:22px;margin:0}.brand p{margin:2px 0 0;color:var(--muted);font-size:13px}.hero{padding:24px;border:1px solid #ffffff1b;border-radius:24px;background:linear-gradient(120deg,#211638dd,#171727dd);margin-bottom:18px}.hero h2{font-size:clamp(25px,5vw,40px);line-height:1.15;margin:0 0 8px}.hero p{color:#c8c3df;margin:0;max-width:670px}.tag{display:inline-block;background:#a78bfa20;color:#d9ccff;border:1px solid #a78bfa50;border-radius:99px;padding:4px 10px;font-size:12px;margin-bottom:12px}.layout{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel{border:1px solid var(--line);background:#141421ed;border-radius:20px;padding:18px;min-width:0}.panel h3{margin:0 0 14px;font-size:17px}.field{margin-bottom:13px}.field label{display:block;color:#d6d2e9;font-size:13px;margin-bottom:6px}input,select,textarea{width:100%;background:#0e0e18;border:1px solid #38384f;border-radius:11px;color:var(--text);padding:11px 12px;font:inherit;outline:none}textarea{min-height:110px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--accent)}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.checks{display:flex;gap:8px;flex-wrap:wrap}.check{display:flex;align-items:center;gap:7px;background:#202033;border:1px solid #393950;border-radius:11px;padding:8px 10px;font-size:13px}.check input{width:auto;accent-color:var(--accent)}button{border:0;border-radius:12px;padding:11px 15px;font:600 14px system-ui;cursor:pointer;transition:.15s}button:hover{filter:brightness(1.1);transform:translateY(-1px)}.primary{color:#171225;background:linear-gradient(100deg,#c4b5fd,#f0abfc)}.secondary{color:var(--text);background:#29293d;border:1px solid #45455d}.buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.previewWrap{display:grid;grid-template-columns:minmax(170px, .75fr) 1fr;gap:15px;align-items:start}.phone{width:100%;max-width:250px;aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:1px solid #45405d;background:#181529;position:relative;margin:auto;box-shadow:0 16px 35px #0006}.phone canvas{width:100%;height:100%;display:block}.previewNote{font-size:12px;color:var(--muted);margin-top:10px}.status{color:#c4b5fd;font-size:12px;min-height:20px;margin-top:8px}.storyout{white-space:pre-wrap;background:#0e0e18;border:1px solid #343449;border-radius:12px;padding:12px;min-height:110px;color:#e8e3ff;font-size:13px}.small{font-size:12px;color:var(--muted)}.notice{border:1px solid #68522a;background:#302617;color:#f7dca5;padding:12px;border-radius:12px;font-size:12px;margin-top:16px}.sceneList{display:flex;flex-direction:column;gap:8px}.scene{padding:10px 12px;border:1px solid #343449;background:#10101b;border-radius:10px;font-size:13px}.scene b{color:#d9ccff}.divider{height:1px;background:var(--line);margin:15px 0}.footer{color:var(--muted);font-size:12px;text-align:center;margin-top:20px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.previewWrap{grid-template-columns:minmax(130px,.8fr) 1fr}.hero{padding:19px}.panel{padding:15px}}@media(max-width:430px){.previewWrap{grid-template-columns:1fr}.phone{max-width:205px}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main>
+<header class="brand"><div class="logo">✦</div><div><h1>AI Short Maker</h1><p>မြန်မာ + English · Story to Short Video</p></div></header>
+<section class="hero"><span class="tag">FREE STARTER · WEB APP</span><h2>Turn an idea into a short story.</h2><p>ဇာတ်လမ်းရေးပါ၊ scene တွေခွဲပါ၊ voice-over နဲ့ background music ထည့်ပြီး vertical short video ကို WebM အဖြစ် export လုပ်ပါ။</p></section>
+<div class="layout">
+<section class="panel">
+<h3>✍️ 1. Story Studio</h3>
+<div class="field"><label for="idea">ဇာတ်လမ်းအကြောင်း / Story idea</label><textarea id="idea" placeholder="ဥပမာ - ညသန်းခေါင်မှာ မိန်းကလေးတစ်ယောက် ဖုန်းထဲက မသိတဲ့ message ကို လက်ခံရရှိတယ်...">A lonely student receives a mysterious message at midnight.</textarea></div>
+<div class="two">
+<div class="field"><label for="genre">Genre</label><select id="genre"><option value="horror">👻 Horror</option><option value="romance">💗 Romance</option><option value="sad">🥹 Emotional</option><option value="comedy">😂 Comedy</option><option value="fantasy">⚔️ Fantasy</option><option value="lesson">✨ Life lesson</option></select></div>
+<div class="field"><label for="lang">Output language</label><select id="lang"><option value="my">မြန်မာ</option><option value="en">English</option><option value="both">မြန်မာ + English</option></select></div>
+</div>
+<div class="two">
+<div class="field"><label for="duration">Duration</label><select id="duration"><option value="15">15 seconds</option><option value="30" selected>30 seconds</option><option value="60">60 seconds</option></select></div>
+<div class="field"><label for="look">Visual style</label><select id="look"><option value="anime">Anime</option><option value="cinematic">Cinematic</option><option value="cartoon">3D Cartoon</option><option value="dream">Dreamy fantasy</option></select></div>
+</div>
+<div class="buttons"><button class="primary" id="makeStory">✨ Generate story</button><button class="secondary" id="sample">↻ Random idea</button></div>
+<div class="divider"></div>
+<label class="small" for="story">Edit the narration / ဇာတ်ကြောင်းကို ပြင်နိုင်ပါတယ်</label>
+<textarea id="story" style="margin-top:6px">At midnight, a student gets a message from an unknown number: “Don't look behind you.” The room goes silent. Another message arrives: “I can see you.” The student turns slowly—and discovers the phone is still sending messages, even though it has no signal.</textarea>
+<div class="buttons"><button class="secondary" id="split">☷ Build scenes</button><button class="secondary" id="voice">🔊 Test voice</button></div>
+<div class="status" id="storyStatus" aria-live="polite"></div>
+</section>
+<section class="panel">
+<h3>🎞️ 2. Video Studio</h3>
+<div class="previewWrap">
+<div><div class="phone"><canvas id="canvas" width="360" height="640"></canvas></div><div class="previewNote">Vertical 9:16 preview · Animated text scenes</div></div>
+<div>
+<div class="field"><label>Video options</label><div class="checks"><label class="check"><input id="subs" type="checkbox" checked> Subtitles</label><label class="check"><input id="music" type="checkbox" checked> Music</label><label class="check"><input id="narrate" type="checkbox" checked> Voice-over</label></div></div>
+<div class="field"><label for="musicType">Background music</label><select id="musicType"><option value="ambient">Ambient suspense</option><option value="happy">Happy / upbeat</option><option value="calm">Calm / dreamy</option><option value="none">No music</option></select></div>
+<div class="field"><label for="speed">Narration speed</label><input id="speed" type="range" min="0.7" max="1.2" step="0.1" value="0.9"></div>
+<div class="buttons"><button class="primary" id="preview">▶ Preview</button><button class="primary" id="export">⬇ Export video</button><button class="secondary" id="stop">■ Stop</button></div>
+<div class="status" id="videoStatus" aria-live="polite">Ready to preview.</div>
+<div class="small">Export uses browser canvas + speech synthesis where supported. Browser voice may not include Burmese.</div>
+</div></div>
+<div class="divider"></div><h3>🎬 Scene list</h3><div id="scenes" class="sceneList"><div class="scene">Generate a story or tap <b>Build scenes</b>.</div></div>
+<div class="notice">ဒီ starter app က ဇာတ်လမ်း၊ scene preview, browser voice, subtitles, generated tone music နဲ့ WebM export ကို local browser ထဲမှာ လုပ်ပေးပါတယ်။ Text-to-video AI model ကနေ cinematic footage တိုက်ရိုက်ထုတ်တာ မပါသေးပါ။</div>
+</section>
+</div>
+<section class="panel" style="margin-top:16px"><h3>🌐 Connect real AI later</h3><p class="small">Real AI-generated footage and high-quality story generation need a server/API integration. Never put private API keys in this HTML file. Add a backend endpoint (for example <code>/api/story</code> and <code>/api/video</code>) and store secrets on the server.</p><div class="buttons"><button class="secondary" id="promptBtn">Copy video prompt</button><button class="secondary" id="downloadStory">Download story .txt</button></div><div class="status" id="copyStatus"></div></section>
+<div class="footer">AI Short Maker · Prototype 1.0 · Your content stays in this browser unless you choose to export it.</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let scenes=[],raf=0,recording=null,stream=null,voiceTimer=null,audioCtx=null,masterGain=null;
+const examples=[
+ {genre:'horror',idea:'A girl finds a second shadow following her in an empty hallway.'},
+ {genre:'romance',idea:'Two strangers keep leaving notes for each other inside the same library book.'},
+ {genre:'sad',idea:'An old man records voice messages for the daughter who moved overseas.'},
+ {genre:'comedy',idea:'A cat becomes the accidental manager of a tiny office.'},
+ {genre:'fantasy',idea:'A young mapmaker discovers that the stars are moving to show a hidden door.'},
+ {genre:'lesson',idea:'A boy learns that one small act of kindness can change an entire day.'}
+];
+const templates={
+ horror:[
+ 'At first, everything seems normal.',
+ 'Then, something impossible appears.',
+ 'A strange sound breaks the silence.',
+ 'The truth is closer than anyone expects.',
+ 'And just when it feels over… it starts again.'
+ ],
+ romance:['They never planned to meet.','A tiny coincidence brings them together.','One honest moment changes everything.','But neither knows what to say next.','Sometimes love begins with something small.'],
+ sad:['Some goodbyes happen quietly.','One memory remains brighter than the rest.','Days pass, but the feeling stays.','Then a small sign brings hope.','Love can remain, even from far away.'],
+ comedy:['It starts with a very bad idea.','Somehow, things get even worse.','Everyone tries to act normal.','The plan finally works… sort of.','Nobody is allowed to talk about it again.'],
+ fantasy:['The world hides a secret.','A mysterious sign appears.','A brave choice opens the way.','Magic comes with an unexpected cost.','The adventure has only just begun.'],
+ lesson:['One small choice seems unimportant.','Soon, its effect reaches someone else.','A mistake reveals the real lesson.','The character chooses to do better.','Small actions can make a big difference.']
+};
+function langText(my,en){let l=$('lang').value;return l==='my'?my:l==='en'?en:my+'\n'+en}
+function makeStory(){
+ const idea=$('idea').value.trim()||'A mysterious event changes an ordinary day.';
+ const g=$('genre').value; const base=templates[g]||templates.horror;
+ const hooks={
+ horror:['ညသန်းခေါင်မှာ ထူးဆန်းတဲ့အရာတစ်ခု စတင်ဖြစ်ပွားခဲ့တယ်။','At midnight, something strange began to happen.'],
+ romance:['သူတို့နှစ်ယောက် တွေ့ဆုံဖို့ မရည်ရွယ်ခဲ့ကြဘူး။','They never planned to meet.'],
+ sad:['တချို့အမှတ်တရတွေက အချိန်ကြာလည်း မပျောက်ကွယ်ဘူး။','Some memories never fade.'],
+ comedy:['အရာအားလုံးက အကြံဆိုးတစ်ခုနဲ့ စတင်ခဲ့တယ်။','Everything began with a terrible idea.'],
+ fantasy:['သာမန်နေ့တစ်နေ့မှာ လျှို့ဝှက်ချက်တစ်ခု ပေါ်လာခဲ့တယ်။','An ordinary day revealed a hidden secret.'],
+ lesson:['အရေးမကြီးဘူးလို့ ထင်ရတဲ့ ဆုံးဖြတ်ချက်လေးတစ်ခုက အရာအားလုံးကို ပြောင်းလဲစေခဲ့တယ်။','One tiny decision changed everything.']
+ };
+ const my=[
+ hooks[g][0],
+ 'အကြောင်းအရာကတော့ — '+idea+'။',
+ 'အစမှာ ဘယ်သူမှ အဲဒီအရာကို သတိမထားမိခဲ့ဘူး။',
+ 'ဒါပေမဲ့ မမျှော်လင့်ထားတဲ့ အလှည့်အပြောင်းတစ်ခု ဖြစ်လာခဲ့တယ်။',
+ base[3]+' '+(g==='horror'?'အဲဒီအချိန်မှာ နောက်ကနေ ခြေသံတစ်ခု ကြားလိုက်ရတယ်။':'ဒီအခိုက်အတန့်က သူ့ဘဝကို ပြောင်းလဲစေခဲ့တယ်။'),
+ base[4]
+ ];
+ const en=[hooks[g][1],`The story begins with this idea: ${idea}.`,'At first, nobody notices what is happening.','But then, an unexpected twist changes everything.',base[3],base[4]];
+ $('story').value=$('lang').value==='my'?my.join(' '):$('lang').value==='en'?en.join(' '):my.join(' ')+'\n\n'+en.join(' ');
+ buildScenes();$('storyStatus').textContent='Story generated. You can edit the narration before exporting.';
+}
+function splitText(text){
+ let clean=text.replace(/\s+/g,' ').trim();if(!clean)return ['Add a story to begin.'];
+ let sentences=clean.match(/[^.!?။]+[.!?။]?/g)||[clean];sentences=sentences.map(s=>s.trim()).filter(Boolean);
+ const n=Math.max(3,Math.min(8,Math.round(Number($('duration').value)/5)));
+ if(sentences.length<=n)return sentences;
+ let result=[];for(let i=0;i<n;i++){let a=Math.floor(i*sentences.length/n),b=Math.floor((i+1)*sentences.length/n);result.push(sentences.slice(a,b).join(' '));}return result;
+}
+function buildScenes(){scenes=splitText($('story').value);$('scenes').innerHTML='';scenes.forEach((s,i)=>{let d=document.createElement('div');d.className='scene';d.innerHTML='<b>Scene '+(i+1)+'</b><br>';d.append(document.createTextNode(s));$('scenes').appendChild(d)});drawScene(0);$('storyStatus').textContent=scenes.length+' scenes ready.'}
+const canvas=$('canvas'),ctx=canvas.getContext('2d');
+function wrapText(text,maxWidth){let words=text.split(/\s+/),lines=[],line='';for(let w of words){let test=line?line+' '+w:w;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=w}else line=test}if(line)lines.push(line);return lines}
+function drawScene(i,progress=0){
+ if(!scenes.length)scenes=['Your story starts here.'];let s=scenes[Math.max(0,Math.min(i,scenes.length-1))];
+ let t=performance.now()/1000;let grad=ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+ const palettes={horror:['#090d1d','#4c164d'],romance:['#4a194e','#e879a9'],sad:['#102a43','#456b86'],comedy:['#523b1d','#c17c39'],fantasy:['#11113d','#6b4bb5'],lesson:['#123c38','#c08b43']};
+ let p=palettes[$('genre').value]||palettes.horror;grad.addColorStop(0,p[0]);grad.addColorStop(1,p[1]);ctx.fillStyle=grad;ctx.fillRect(0,0,360,640);
+ for(let k=0;k<32;k++){let x=(k*83+Math.sin(t+k)*12)%360,y=(k*137+t*8)%640;ctx.fillStyle='rgba(255,255,255,'+(0.08+(k%4)*.035)+')';ctx.beginPath();ctx.arc(x,y,k%3===0?2:1,0,Math.PI*2);ctx.fill()}
+ ctx.textAlign='center';ctx.fillStyle='#d8ccff';ctx.font='bold 12px system-ui';ctx.fillText('AI SHORT MAKER  •  '+String(i+1).padStart(2,'0'),180,48);
+ ctx.fillStyle='rgba(255,255,255,.07)';ctx.beginPath();ctx.roundRect(28,120,304,350,22);ctx.fill();
+ const icons={horror:'◉',romance:'♡',sad:'☾',comedy:'✦',fantasy:'✧',lesson:'❖'};ctx.fillStyle='#f5d0fe';ctx.font='72px system-ui';ctx.fillText(icons[$('genre').value]||'✧',180,235);
+ ctx.fillStyle='#fff';ctx.font='bold 23px system-ui';let lines=wrapText(s,268);lines.slice(0,7).forEach((line,j)=>ctx.fillText(line,180,295+j*31));
+ if($('subs').checked){ctx.fillStyle='rgba(0,0,0,.55)';ctx.beginPath();ctx.roundRect(20,520,320,76,12);ctx.fill();ctx.fillStyle='#fff';ctx.font='bold 16px system-ui';let sub=wrapText(s,280);sub.slice(0,3).forEach((line,j)=>ctx.fillText(line,180,546+j*21))}
+ ctx.fillStyle='rgba(255,255,255,.35)';ctx.fillRect(25,612,310,3);ctx.fillStyle='#e9d5ff';ctx.fillRect(25,612,310*Math.max(0,Math.min(1,(i+progress)/scenes.length)),3);
+}
+function drawFrame(t){let dur=Number($('duration').value)*1000;let p=Math.min(.999,t/dur),idx=Math.min(scenes.length-1,Math.floor(p*scenes.length)),sub=(p*scenes.length)%1;drawScene(idx,sub);return p}
+function speak(text){if(!('speechSynthesis'in window))return false;window.speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.rate=Number($('speed').value);let voices=window.speechSynthesis.getVoices();let lang=$('lang').value==='en'?'en': 'my';let v=voices.find(v=>lang==='en'?v.lang.toLowerCase().startsWith('en'):v.lang.toLowerCase().startsWith('my'));if(!v&&lang==='en')v=voices.find(v=>v.lang.toLowerCase().startsWith('en'));if(v)u.voice=v;u.lang=v?v.lang:(lang==='en'?'en-US':'my-MM');window.speechSynthesis.speak(u);return true}
+function stopAll(){cancelAnimationFrame(raf);raf=0;if(window.speechSynthesis)window.speechSynthesis.cancel();if(audioCtx){audioCtx.close().catch(()=>{});audioCtx=null}if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}if(recording&&recording.state!=='inactive'){try{recording.stop()}catch(e){}}$('videoStatus').textContent='Stopped.'}
+function startMusic(){
+ if(!$('music').checked||$('musicType').value==='none')return;
+ try{audioCtx=new(window.AudioContext||window.webkitAudioContext)();masterGain=audioCtx.createGain();masterGain.gain.value=.025;masterGain.connect(audioCtx.destination);
+ let notes=$('musicType').value==='happy'?[261.6,329.6,392,329.6]:$('musicType').value==='calm'?[220,261.6,329.6,261.6]:[110,146.8,123.5,164.8];
+ notes.forEach((f,i)=>{let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=f;g.gain.value=.2;o.connect(g);g.connect(masterGain);o.start();let lfo=audioCtx.createOscillator(),lg=audioCtx.createGain();lfo.frequency.value=.15+i*.03;lg.gain.value=2;lfo.connect(lg);lg.connect(o.frequency);lfo.start()});
+ }catch(e){}
+}
+function startPlayback(exporting=false){
+ stopAll();buildScenes();let total=Number($('duration').value)*1000,start=performance.now();
+ if($('narrate').checked)speak($('story').value);
+ startMusic();
+ if(exporting){
+  try{stream=canvas.captureStream(30);if(audioCtx&&audioCtx.destination.stream)audioCtx.destination.stream.getAudioTracks().forEach(t=>stream.addTrack(t));}catch(e){stream=canvas.captureStream(30)}
+  let mime=MediaRecorder.isTypeSupported('video/webm;codecs=vp9')?'video/webm;codecs=vp9':'video/webm';
+  try{recording=new MediaRecorder(stream,{mimeType:mime})}catch(e){recording=new MediaRecorder(stream)}
+  let chunks=[];recording.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data)};
+  recording.onstop=()=>{let blob=new Blob(chunks,{type:'video/webm'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='ai-short-maker.webm';a.click();setTimeout(()=>URL.revokeObjectURL(url),3000);$('videoStatus').textContent='Export complete — ai-short-maker.webm downloaded.';if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}if(audioCtx){audioCtx.close().catch(()=>{});audioCtx=null}};
+  recording.start(250);
+ }
+ function tick(now){let elapsed=now-start,p=drawFrame(elapsed);if(elapsed<total){raf=requestAnimationFrame(tick)}else{drawFrame(total);if(exporting&&recording&&recording.state!=='inactive')recording.stop();else{$('videoStatus').textContent='Preview complete.';if(audioCtx){audioCtx.close().catch(()=>{});audioCtx=null}}}}
+ raf=requestAnimationFrame(tick);$('videoStatus').textContent=exporting?'Recording your short… keep this tab open.':'Playing preview…';
+}
+$('makeStory').onclick=makeStory;
+$('sample').onclick=()=>{let e=examples[Math.floor(Math.random()*examples.length)];$('genre').value=e.genre;$('idea').value=e.idea;makeStory()};
+$('split').onclick=buildScenes;
+$('voice').onclick=()=>{if(!('speechSynthesis'in window)){$('storyStatus').textContent='This browser does not support speech synthesis.';return}if(!speak($('story').value))$('storyStatus').textContent='Voice not available.';else $('storyStatus').textContent='Voice test started. Available languages depend on your device.'};
+$('preview').onclick=()=>startPlayback(false);
+$('export').onclick=()=>{if(!window.MediaRecorder||!canvas.captureStream){$('videoStatus').textContent='This browser cannot export video. Try Chrome or Edge on desktop.';return}startPlayback(true)};
+$('stop').onclick=stopAll;
+$('promptBtn').onclick=async()=>{let prompt=`Vertical 9:16 ${$('look').value} short video, genre ${$('genre').value}. Story: ${$('idea').value}. Create ${scenes.length||5} coherent scenes, cinematic lighting, consistent characters, no text or watermark, emotional pacing, suitable for a ${$('duration').value}-second social video.`;try{await navigator.clipboard.writeText(prompt);$('copyStatus').textContent='Video prompt copied.'}catch(e){$('copyStatus').textContent=prompt}};
+$('downloadStory').onclick=()=>{let blob=new Blob([$('story').value],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='ai-short-story.txt';a.click();URL.revokeObjectURL(url)};
+$('story').addEventListener('input',()=>{});
+if(!CanvasRenderingContext2D.prototype.roundRect){CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){this.rect(x,y,w,h);return this}}
+buildScenes();
+</script></body></html>
